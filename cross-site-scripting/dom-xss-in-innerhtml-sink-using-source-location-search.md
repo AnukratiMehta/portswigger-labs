@@ -1,4 +1,5 @@
-# Lab: DOM XSS in document.write sink using source location.search
+# Lab: DOM XSS in innerHTML sink using source location.search
+
 
 **End Goal:** Perform a cross-site scripting attack that calls the ```alert``` function.
 
