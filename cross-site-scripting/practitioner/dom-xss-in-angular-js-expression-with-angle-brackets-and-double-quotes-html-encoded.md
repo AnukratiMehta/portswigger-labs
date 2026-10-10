@@ -1,24 +1,22 @@
 # Lab: DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded
 
-**End Goal:** Perform a cross-site scripting attack that breaks out of the select element and calls the `alert` function.
+**End Goal:** Perform a cross-site scripting attack that executes an AngularJS expression and calls the `alert` function.
 
 **Analysis**
 
-*Open a product page and add a random store ID in the URL to check*
+*Inside an ng-app region, AngularJS evaluates anything in double curly braces {{ }} as an expression. Test if my input gets evaluated.*
 
-[&storeId=test123](https://0ad3002b0447ea588006214000a000d6.web-security-academy.net/product?productId=1&storeId=test123)
+{{1+1}}
 
-*test123 appears in the dropdown menu. So now we can replace it with a real payload.*
+*Got 0 search results for '2' so Angular is running my expression. No angle brackets or quotes needed.*
 
-<img src=1 onerror=alert(1)>
+{{alert(1)}}
 
-*Nothing fires. The browser won't run elements while they're inside a <select>, so I need to close the select first.*
+*Got 0 search results for ''. AngularJS runs expressions in a sandbox that blocks `alert`, `window`, etc.*
 
 **Answer:** 
 
-</select><img src=1 onerror=alert(1)>
-
-
+{{$on.constructor('alert(1)')()}}
 
 
 
