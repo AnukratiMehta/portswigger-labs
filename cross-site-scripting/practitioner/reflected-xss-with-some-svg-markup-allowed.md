@@ -17,13 +17,7 @@
 
 *`onbegin` is an SMIL animation event: it fires automatically when the animation element begins, as soon as the page loads. No victim interaction needed. `<animatetransform>` has to live inside an `<svg>` to be valid, which is why I wrap it.*
 
-- My search payload: `<svg><animatetransform onbegin=alert(1)>`
-- Put it in the search box (or hit the URL directly) --> the page reflects it, the animation begins, `onbegin` fires --> `alert(1)` pops
-
 **Answer:**
 
-Search box / `?search=` value:
-
-```
 <svg><animatetransform onbegin=alert(1)>
-```
+

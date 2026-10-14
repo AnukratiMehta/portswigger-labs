@@ -9,9 +9,7 @@
 
 *The author name becomes a link, and the "website" value I supplied is dropped into both the `href` and an inline `onclick` handler. The onclick looks like:*
 
-```html
 <a href="WEBSITE" onclick="var tracker={track(){}};tracker.track('WEBSITE');">NAME</a>
-```
 
 *So my input lands inside a single-quoted JavaScript string, inside an HTML attribute. To run code I need to break out of that `'...'` string.*
 
@@ -42,6 +40,4 @@
 
 Website field value:
 
-```
 http://foo?&apos;-alert(1)-&apos;
-```
