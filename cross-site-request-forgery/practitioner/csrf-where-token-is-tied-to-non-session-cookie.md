@@ -34,7 +34,7 @@ session: 2klPQx75tMt30szOHQ3Y1jPiVO3NDSfu
 
 Encoding: `%0d%0a` = CRLF (ends the header line), `%20` = space, `%3b` = `;`
 
-- Build the exploit: a form that POSTs the email change with my matching `csrf` token, plus an `<img>` that first fires the cookie injection and then, `onerror`, submits the form:
+- Build the exploit: a form that POSTs the email change with my matching `csrf` token, plus an `<img>` that first fires the cookie injection and then, `onerror`, submits the form.
 
 *The image request sets the victim's `csrfKey` cookie to my value. It then "fails" (it's not an image), firing `onerror`, which submits the form. The form carries the `csrf` token that pairs with the `csrfKey` I just planted, so the server accepts it.*
 
@@ -42,7 +42,6 @@ Encoding: `%0d%0a` = CRLF (ends the header line), `%20` = space, `%3b` = `;`
 - **Deliver exploit to victim** --> their `csrfKey` gets overwritten with mine, the form submits with the matching token --> email changes
 
 **Answer:**
-
 
 <form action="https://0a450024043d43ad800f031f000800b5.web-security-academy.net/my-account/change-email" method="POST">
   <input type="hidden" name="email" value="hacker@evil-user.net">
